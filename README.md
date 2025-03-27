@@ -47,7 +47,7 @@ translate(text, options).then(console.log).catch(console.error);
 | `options.from` | `String` | Yes | `'auto'` | The language name/ISO 639-1 code to translate from. If none is given, it will auto detect the source language. |
 | `options.to` | `String` | Yes | `'en'` | The language name/ISO 639-1 code to translate to. If none is given, it will translate to English. |
 | `options.raw` | `Boolean` | Yes | `false` | If `true`, it will return the raw output that was received from Google Translate. |
-| `options.proxy` | `String` | No | - | If set, it will use proxy for Google Translate. |
+| `options.proxy` | `String` | No | - | If set, it will use the proxy for Google Translate. |
 
 #### Returns: `Promise<Object>`
 **Response Object:**
