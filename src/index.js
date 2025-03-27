@@ -80,7 +80,7 @@ async function translate(text, options) {
     }
 
     // Request translation from Google Translate.
-    let response
+    let response;
     if (options.proxy) {
         const proxyAgent = new ProxyAgent(options.proxy);
         response = await request(...requestOptions, { dispatcher: proxyAgent });
