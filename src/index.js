@@ -1,5 +1,5 @@
 const querystring = require("querystring");
-const { request } = require("undici");
+const { request, ProxyAgent } = require("undici");
 
 const languages = require("./languages");
 const tokenGenerator = require("./tokenGenerator");
@@ -80,7 +80,13 @@ async function translate(text, options) {
     }
 
     // Request translation from Google Translate.
-    let response = await request(...requestOptions);
+    let response
+    if (options.proxy) {
+        const proxyAgent = new ProxyAgent(options.proxy);
+        response = await request(...requestOptions, { dispatcher: proxyAgent });
+    } else {
+        response = await request(...requestOptions);
+    }
     let body = await response.body.json();
 
     let result = {
