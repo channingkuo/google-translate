@@ -67,6 +67,15 @@ translate(text, options).then(console.log).catch(console.error);
 
 
 ## Examples
+#### Use Proxy:
+```js
+translate('Tu es incroyable!', { to: 'en', proxy: 'http://127.0.0.1:7890' }).then(res => {
+  console.log(res.text); // OUTPUT: You are amazing!
+}).catch(err => {
+  console.error(err);
+});
+```
+
 #### From automatic language detection to English:
 ```js
 translate('Tu es incroyable!', { to: 'en' }).then(res => {
